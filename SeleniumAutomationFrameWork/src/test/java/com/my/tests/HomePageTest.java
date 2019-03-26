@@ -66,7 +66,7 @@ public class HomePageTest {
 	@AfterMethod
 	public void screenShot(ITestResult result) throws IOException{
 		//using ITestResult.FAILURE is equals to result.getStatus then it enter into if condition
-			if(ITestResult.FAILURE==result.getStatus())
+		//	if(ITestResult.FAILURE==result.getStatus())
 		{
 				try{
 					// To create reference of TakesScreenshot
@@ -150,6 +150,6 @@ public class HomePageTest {
 	}
 	
 	
-	
+	////sdcbhjsdbjhcbsdjh
 	
 }
