@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.Writer;
 import java.util.concurrent.TimeUnit;
 
@@ -63,9 +64,10 @@ public class HomePageTest {
 	}
 	
 	@AfterMethod
-	public void screenShot(ITestResult result){
+	public void screenShot(ITestResult result) throws IOException{
 		//using ITestResult.FAILURE is equals to result.getStatus then it enter into if condition
-			if(ITestResult.FAILURE==result.getStatus()){
+			if(ITestResult.FAILURE==result.getStatus())
+		{
 				try{
 					// To create reference of TakesScreenshot
 					TakesScreenshot screenshot=(TakesScreenshot)driver;
@@ -73,7 +75,7 @@ public class HomePageTest {
 					File src=screenshot.getScreenshotAs(OutputType.FILE);
 					// Copy files to specific location 
 					// result.getName() will return name of test case so that screenshot name will be same as test case name
-					FileUtils.copyFile(src, new File("takenPhoto-"+result.getName()+".png"));
+					FileUtils.copyFile(src, new File("/Users/user/git/FrameWork/SeleniumAutomationFrameWork/screenshots"+result.getName()+".png"));
 					
 					System.out.println("Successfully captured a screenshot");
 				}catch (Exception e){
